@@ -1,0 +1,15 @@
+title: BINO Legal Documents
+description: Official legal documents for the BINO platform — Child Safety Standards, Terms of Use, Privacy Policy, and Data Processing Agreement.
+remote_theme: pages-themes/primer@v0.6.0
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+permalink: pretty
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
