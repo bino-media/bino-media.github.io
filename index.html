@@ -6,18 +6,26 @@
   <title>BINO Child Safety Standards</title>
   <meta
     name="description"
-    content="BINO Child Safety Standards covering CSAE/CSAM prohibition, reporting, enforcement, and contact information."
+    content="BINO Child Safety Standards and policies relating to child sexual abuse and exploitation prevention, reporting, moderation, enforcement, and compliance."
   />
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #121933;
-      --text: #e8ecf8;
-      --muted: #b7c0d8;
-      --line: #243055;
-      --accent: #7aa2ff;
-      --accent-2: #9cc0ff;
-      --danger: #ffb4b4;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-2: #f9fbff;
+      --text: #172033;
+      --muted: #5c6780;
+      --line: #dbe3f0;
+      --line-strong: #c8d3e6;
+      --brand: #1b3a6b;
+      --brand-2: #284f8f;
+      --accent: #eef4ff;
+      --danger: #8a1f1f;
+      --danger-bg: #fff3f3;
+      --shadow: 0 10px 30px rgba(22, 33, 63, 0.08);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --max: 980px;
     }
 
     * {
@@ -30,102 +38,155 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, #0a0f1d 0%, #10172e 100%);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
-      line-height: 1.65;
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--brand-2);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .container {
-      width: min(920px, calc(100% - 32px));
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
     }
 
-    header {
-      padding: 56px 0 28px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background:
-        radial-gradient(circle at top right, rgba(122,162,255,0.18), transparent 28%),
-        radial-gradient(circle at top left, rgba(156,192,255,0.12), transparent 22%);
+    .topbar {
+      background: var(--brand);
+      color: #fff;
+      padding: 12px 0;
+      font-size: 14px;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      padding: 48px 0 34px;
     }
 
     .eyebrow {
       display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid rgba(122,162,255,0.35);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-2);
+      background: var(--accent);
+      border: 1px solid #d7e4ff;
       border-radius: 999px;
-      color: var(--accent-2);
-      font-size: 13px;
-      letter-spacing: 0.02em;
-      background: rgba(122,162,255,0.08);
-      margin-bottom: 16px;
+      padding: 6px 10px;
+      margin-bottom: 14px;
     }
 
     h1 {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.15;
       margin: 0 0 12px;
-      font-size: clamp(32px, 5vw, 46px);
-      line-height: 1.12;
+      color: #10203d;
     }
 
-    .subtitle {
-      max-width: 760px;
+    .lede {
+      font-size: 18px;
       color: var(--muted);
-      font-size: 17px;
-      margin: 0;
+      max-width: 850px;
+      margin: 0 0 18px;
     }
 
     .meta {
-      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
       color: var(--muted);
       font-size: 14px;
     }
 
-    main {
-      padding: 32px 0 64px;
+    .meta strong {
+      color: var(--text);
     }
 
-    nav.toc {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 18px 20px;
-      margin-bottom: 24px;
-      backdrop-filter: blur(8px);
-    }
-
-    nav.toc h2 {
-      margin: 0 0 10px;
-      font-size: 16px;
-    }
-
-    nav.toc a {
-      color: var(--accent-2);
-      text-decoration: none;
-    }
-
-    nav.toc a:hover {
-      text-decoration: underline;
-    }
-
-    .toc-grid {
+    .layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 8px 20px;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 24px;
+      padding: 28px 0 64px;
     }
 
-    section {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 26px 22px;
+    .toc {
+      position: sticky;
+      top: 20px;
+      align-self: start;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .toc h2 {
+      font-size: 15px;
+      margin: 0 0 10px;
+      color: #22304d;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .toc li {
+      margin: 8px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
       margin-bottom: 18px;
-      backdrop-filter: blur(8px);
+    }
+
+    .notice {
+      background: var(--danger-bg);
+      border: 1px solid #f0d1d1;
+      border-left: 4px solid var(--danger);
+      color: #5c1d1d;
+      padding: 16px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
     }
 
     section h2 {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 27px;
+      line-height: 1.25;
       margin: 0 0 14px;
-      font-size: 24px;
-      line-height: 1.2;
+      color: #132443;
     }
 
     p {
@@ -133,7 +194,7 @@
     }
 
     ul {
-      margin: 0;
+      margin: 0 0 14px;
       padding-left: 22px;
     }
 
@@ -141,243 +202,308 @@
       margin-top: 8px;
     }
 
-    .notice {
-      border-left: 4px solid var(--accent);
+    .deflist {
+      display: grid;
+      gap: 12px;
+    }
+
+    .defitem {
       padding: 14px 16px;
-      border-radius: 12px;
-      background: rgba(122,162,255,0.08);
-      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
     }
 
-    .danger {
-      border-left-color: #ff8e8e;
-      background: rgba(255, 142, 142, 0.08);
-      color: var(--danger);
-    }
-
-    a {
-      color: var(--accent-2);
-    }
-
-    footer {
-      padding: 26px 0 50px;
-      color: var(--muted);
-      font-size: 14px;
+    .defitem strong {
+      display: inline-block;
+      margin-bottom: 4px;
+      color: #1a2c4d;
     }
 
     .contact-box {
-      padding: 16px 18px;
-      border: 1px solid rgba(122,162,255,0.28);
-      border-radius: 16px;
-      background: rgba(122,162,255,0.07);
+      background: #f8fbff;
+      border: 1px solid #dbe7fb;
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      padding: 26px 0 40px;
+    }
+
+    .small {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
     }
 
     @media (max-width: 640px) {
-      header {
-        padding-top: 42px;
+      .hero-inner {
+        padding: 36px 0 24px;
       }
 
-      section {
+      .card {
         padding: 22px 18px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .lede {
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="topbar">
     <div class="container">
-      <div class="eyebrow">BINO Safety & Trust</div>
-      <h1>BINO CHILD SAFETY STANDARDS</h1>
-      <p class="subtitle">
-        Bino is committed to providing a safe, secure, and respectful environment for all users.
-        We enforce a strict zero-tolerance policy against child sexual abuse and exploitation (CSAE),
-        including any form of child sexual abuse material (CSAM), in compliance with applicable laws
-        and platform requirements, including Google Play policies.
+      <div><strong>BINO</strong> — Safety & Trust</div>
+      <div>Official Child Safety Standards</div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="eyebrow">Published Safety Standards</div>
+      <h1>BINO Child Safety Standards</h1>
+      <p class="lede">
+        Bino is committed to maintaining a safe, secure, and respectful environment for all users.
+        We adopt a zero-tolerance approach to child sexual abuse and exploitation, including child
+        sexual abuse material, grooming, predatory behavior, and any conduct that endangers minors.
       </p>
-      <div class="meta"><strong>Effective Date:</strong> 18/04/2026</div>
+      <div class="meta">
+        <div><strong>Effective Date:</strong> April 18, 2026</div>
+        <div><strong>Applies To:</strong> All users, content, features, and interactions on Bino</div>
+        <div><strong>Contact:</strong> <a href="mailto:it@binomedia.vn">it@binomedia.vn</a></div>
+      </div>
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <nav class="toc" aria-label="Table of contents">
+  <main class="container">
+    <div class="layout">
+      <aside class="toc" aria-label="Table of contents">
         <h2>Contents</h2>
-        <div class="toc-grid">
-          <a href="#scope">1. Scope and Commitment</a>
-          <a href="#prohibited">2. Prohibited Content and Conduct</a>
-          <a href="#moderation">3. Content Moderation and Detection</a>
-          <a href="#reporting">4. User Reporting and In-App Safety Tools</a>
-          <a href="#enforcement">5. Enforcement and Penalties</a>
-          <a href="#law-enforcement">6. Cooperation with Law Enforcement</a>
-          <a href="#design">7. Child Safety by Design</a>
-          <a href="#eligibility">8. User Eligibility</a>
-          <a href="#privacy">9. Privacy and Data Protection</a>
-          <a href="#contact">10. Contact and Escalation</a>
-          <a href="#updates">11. Policy Updates</a>
+        <ol>
+          <li><a href="#purpose">Purpose and Scope</a></li>
+          <li><a href="#definitions">Definitions</a></li>
+          <li><a href="#prohibited-conduct">Prohibited Conduct</a></li>
+          <li><a href="#reporting">Reporting and In-App Safety Tools</a></li>
+          <li><a href="#moderation">Moderation and Detection</a></li>
+          <li><a href="#enforcement">Enforcement Measures</a></li>
+          <li><a href="#legal">Legal Compliance and Cooperation</a></li>
+          <li><a href="#eligibility">Age Eligibility</a></li>
+          <li><a href="#privacy">Privacy and Data Handling</a></li>
+          <li><a href="#contact">Contact Information</a></li>
+          <li><a href="#updates">Policy Updates</a></li>
+        </ol>
+      </aside>
+
+      <div class="content">
+        <div class="card">
+          <div class="notice">
+            Bino strictly prohibits any content, conduct, or interaction that exploits, sexualizes,
+            abuses, harms, or endangers children. Confirmed or suspected violations may result in
+            immediate removal, account suspension or termination, and referral to the appropriate
+            authorities where required by law.
+          </div>
         </div>
-      </nav>
 
-      <section>
-        <div class="notice danger">
-          Bino strictly prohibits any activity, content, or behavior that endangers, exploits, or harms children.
-        </div>
-      </section>
-
-      <section id="scope">
-        <h2>1. Scope and Commitment</h2>
-        <p>
-          These Child Safety Standards apply to all users and all forms of content on the Bino platform,
-          including but not limited to text, images, videos, comments, messages, and user profiles.
-        </p>
-        <p>
-          Bino strictly prohibits any activity that endangers, exploits, or harms children.
-        </p>
-      </section>
-
-      <section id="prohibited">
-        <h2>2. Prohibited Content and Conduct</h2>
-        <p>The following are strictly prohibited on Bino:</p>
-        <ul>
-          <li>Any content that depicts, promotes, or facilitates child sexual abuse or exploitation (CSAE)</li>
-          <li>Uploading, sharing, storing, or distributing child sexual abuse material (CSAM)</li>
-          <li>Grooming behavior, including building relationships with minors for exploitative purposes</li>
-          <li>Sexualized interactions involving minors in any form</li>
-          <li>Harassment, coercion, or threats directed at minors</li>
-          <li>Any attempt to circumvent detection or moderation systems</li>
-        </ul>
-        <p>
-          Violations of these rules are considered severe and will result in immediate enforcement actions.
-        </p>
-      </section>
-
-      <section id="moderation">
-        <h2>3. Content Moderation and Detection</h2>
-        <p>
-          Bino employs a multi-layered moderation approach to prevent and detect harmful content:
-        </p>
-        <ul>
-          <li>Automated systems to identify potentially abusive or high-risk content</li>
-          <li>Human moderation to review flagged or reported content</li>
-          <li>User reporting mechanisms to surface violations quickly</li>
-        </ul>
-        <p>
-          We continuously improve our detection and enforcement capabilities to enhance child safety.
-        </p>
-      </section>
-
-      <section id="reporting">
-        <h2>4. User Reporting and In-App Safety Tools</h2>
-        <p>
-          Bino provides accessible in-app tools that allow users to report content or behavior
-          that may violate these standards.
-        </p>
-        <p>Users can:</p>
-        <ul>
-          <li>Report posts, comments, or user accounts</li>
-          <li>Select specific violation categories, including child safety concerns</li>
-          <li>Submit reports directly within the app interface</li>
-        </ul>
-        <p>
-          All reports are reviewed in a timely manner by our moderation team.
-        </p>
-      </section>
-
-      <section id="enforcement">
-        <h2>5. Enforcement and Penalties</h2>
-        <p>
-          Bino enforces its policies through a range of actions, depending on the severity of the violation:
-        </p>
-        <ul>
-          <li>Immediate removal of violating content</li>
-          <li>Temporary restriction of account functionality</li>
-          <li>Suspension or permanent termination of accounts</li>
-          <li>Blocking access to platform features</li>
-          <li>Escalation to relevant authorities when required</li>
-        </ul>
-        <p>
-          Repeat or severe violations will result in permanent account bans.
-        </p>
-      </section>
-
-      <section id="law-enforcement">
-        <h2>6. Cooperation with Law Enforcement</h2>
-        <p>
-          Bino complies with all applicable child protection laws and regulations. Where required, we will:
-        </p>
-        <ul>
-          <li>Report illegal content or behavior to relevant authorities</li>
-          <li>Cooperate with law enforcement investigations</li>
-          <li>Preserve necessary data in accordance with legal obligations</li>
-        </ul>
-      </section>
-
-      <section id="design">
-        <h2>7. Child Safety by Design</h2>
-        <p>
-          Bino integrates safety considerations into product design and operations, including:
-        </p>
-        <ul>
-          <li>Providing clear reporting mechanisms</li>
-          <li>Limiting exposure to harmful content</li>
-          <li>Reviewing high-risk content categories</li>
-          <li>Continuously improving safety policies and enforcement workflows</li>
-        </ul>
-      </section>
-
-      <section id="eligibility">
-        <h2>8. User Eligibility</h2>
-        <p>
-          Bino is not intended for children under the age of 13 (or the minimum age required by local laws).
-          Users must meet the minimum age requirement to use the platform.
-        </p>
-      </section>
-
-      <section id="privacy">
-        <h2>9. Privacy and Data Protection</h2>
-        <p>
-          Bino respects user privacy and processes personal data in accordance with applicable data protection laws.
-        </p>
-        <p>
-          Access to user-generated content is strictly limited to purposes such as:
-        </p>
-        <ul>
-          <li>Content moderation</li>
-          <li>Safety enforcement</li>
-          <li>Legal compliance</li>
-        </ul>
-        <p>
-          For more information, please refer to our Privacy Policy.
-        </p>
-      </section>
-
-      <section id="contact">
-        <h2>10. Contact and Escalation</h2>
-        <div class="contact-box">
+        <section id="purpose" class="card">
+          <h2>1. Purpose and Scope</h2>
           <p>
-            For any concerns related to child safety, CSAE, or CSAM, users and authorities may contact us at:
+            These Child Safety Standards set out Bino’s rules, safeguards, and enforcement practices
+            relating to child safety on the platform. They apply to all users and to all forms of
+            activity and content on Bino, including without limitation text, images, videos, comments,
+            messages, user profiles, posts, and other user-generated or shared materials.
           </p>
-          <p><strong>Email:</strong> <a href="mailto:contact@binomedia.vn">contact@binomedia.vn</a></p>
           <p>
-            We are committed to responding promptly and taking appropriate action.
+            Bino is committed to preventing child sexual abuse and exploitation and to maintaining
+            standards designed to detect, deter, review, and address content or conduct that may
+            place minors at risk.
           </p>
-        </div>
-      </section>
+        </section>
 
-      <section id="updates">
-        <h2>11. Policy Updates</h2>
-        <p>
-          Bino may update these Child Safety Standards from time to time to reflect legal, regulatory,
-          or operational changes. Updates will be published on this page with the revised effective date.
-        </p>
-        <p>
-          Bino remains committed to maintaining a safe digital environment and continuously strengthening
-          protections for children across our platform.
-        </p>
-      </section>
+        <section id="definitions" class="card">
+          <h2>2. Definitions</h2>
+          <div class="deflist">
+            <div class="defitem">
+              <strong>Child / Minor</strong>
+              <div>A person under the age of 18, or any higher age threshold established by applicable law.</div>
+            </div>
+            <div class="defitem">
+              <strong>CSAE</strong>
+              <div>Child sexual abuse and exploitation, including conduct, solicitation, facilitation, grooming, coercion, or exploitation involving minors.</div>
+            </div>
+            <div class="defitem">
+              <strong>CSAM</strong>
+              <div>Any visual depiction, representation, or material involving the sexual abuse, exploitation, or sexualized depiction of a minor, as defined by applicable law.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="prohibited-conduct" class="card">
+          <h2>3. Prohibited Conduct</h2>
+          <p>The following are strictly prohibited on Bino:</p>
+          <ul>
+            <li>Any content that depicts, promotes, glorifies, requests, or facilitates CSAE or CSAM</li>
+            <li>Uploading, sharing, storing, transmitting, or distributing CSAM in any form</li>
+            <li>Grooming, predatory behavior, or attempts to build exploitative relationships with minors</li>
+            <li>Sexualized comments, interactions, threats, coercion, extortion, or harassment involving minors</li>
+            <li>Attempts to exploit, manipulate, or endanger minors through direct or indirect communication</li>
+            <li>Any effort to evade, circumvent, interfere with, or undermine safety, moderation, or detection systems</li>
+          </ul>
+          <p>
+            Violations of these standards are treated as severe policy breaches and may result in
+            immediate enforcement action without prior notice.
+          </p>
+        </section>
+
+        <section id="reporting" class="card">
+          <h2>4. Reporting and In-App Safety Tools</h2>
+          <p>
+            Bino provides in-app reporting tools that enable users to report content, accounts, or
+            behavior that may violate these standards or otherwise raise child safety concerns.
+          </p>
+          <p>Users may, where available within the app:</p>
+          <ul>
+            <li>Report posts, comments, messages, profiles, or accounts</li>
+            <li>Select report categories related to child safety or harmful conduct</li>
+            <li>Submit reports directly through the app interface for moderation review</li>
+          </ul>
+          <p>
+            Reports are reviewed by Bino’s moderation processes in a timely manner and may be escalated
+            for enhanced review depending on severity, risk indicators, or legal obligations.
+          </p>
+        </section>
+
+        <section id="moderation" class="card">
+          <h2>5. Moderation and Detection</h2>
+          <p>
+            Bino uses a layered safety approach intended to prevent, identify, and address harmful conduct.
+            This may include:
+          </p>
+          <ul>
+            <li>Automated systems and signals to identify potentially abusive or high-risk content or behavior</li>
+            <li>Human review of flagged, reported, or otherwise escalated material</li>
+            <li>Internal safety workflows to support investigation, triage, and enforcement</li>
+          </ul>
+          <p>
+            Bino may revise and improve its moderation, trust, and safety systems from time to time in
+            order to strengthen child protection measures.
+          </p>
+        </section>
+
+        <section id="enforcement" class="card">
+          <h2>6. Enforcement Measures</h2>
+          <p>
+            Where Bino determines, in its sole discretion and subject to applicable law, that a user,
+            account, or piece of content may violate these standards, Bino may take one or more of
+            the following actions:
+          </p>
+          <ul>
+            <li>Remove or restrict access to violating content</li>
+            <li>Temporarily restrict account functionality or feature access</li>
+            <li>Suspend or permanently terminate accounts</li>
+            <li>Block interactions or access to specific platform services</li>
+            <li>Preserve relevant records where required for safety or legal purposes</li>
+            <li>Escalate the matter to the appropriate authorities where required or permitted by law</li>
+          </ul>
+          <p>
+            Repeated, egregious, or high-risk violations may result in permanent account removal.
+          </p>
+        </section>
+
+        <section id="legal" class="card">
+          <h2>7. Legal Compliance and Cooperation</h2>
+          <p>
+            Bino complies with applicable child protection, safety, and reporting laws and regulations.
+            Where required by law, Bino may report confirmed or reasonably suspected illegal material
+            or behavior to the appropriate regional or national authorities.
+          </p>
+          <p>Bino may also, where legally required or permitted:</p>
+          <ul>
+            <li>Cooperate with law enforcement or competent authorities</li>
+            <li>Respond to lawful requests relating to investigations</li>
+            <li>Preserve or disclose relevant information in accordance with applicable law</li>
+          </ul>
+        </section>
+
+        <section id="eligibility" class="card">
+          <h2>8. Age Eligibility</h2>
+          <p>
+            Bino is not intended for children under the age of 13, or any higher minimum age required
+            under applicable local law. Users are responsible for complying with applicable age requirements
+            to access and use the platform.
+          </p>
+        </section>
+
+        <section id="privacy" class="card">
+          <h2>9. Privacy and Data Handling</h2>
+          <p>
+            Bino respects user privacy and processes personal data in accordance with applicable data
+            protection laws and its published privacy documentation.
+          </p>
+          <p>
+            Access to user-generated content and account-related information may be limited to authorized
+            purposes such as:
+          </p>
+          <ul>
+            <li>Content moderation and trust & safety review</li>
+            <li>Enforcement of platform policies and user protections</li>
+            <li>Legal compliance, record preservation, and lawful reporting obligations</li>
+          </ul>
+          <p>
+            For more information, please refer to Bino’s Privacy Policy and related legal documents, where applicable.
+          </p>
+        </section>
+
+        <section id="contact" class="card">
+          <h2>10. Contact Information</h2>
+          <div class="contact-box">
+            <p>
+              For concerns relating to child safety, CSAE, CSAM, harmful conduct involving minors, or
+              compliance with these standards, users, guardians, regulators, and competent authorities
+              may contact Bino at:
+            </p>
+            <p><strong>Email:</strong> <a href="mailto:it@binomedia.vn">it@binomedia.vn</a></p>
+            <p class="small">
+              Bino may update this contact point from time to time. Please use the most current contact
+              information published on this page.
+            </p>
+          </div>
+        </section>
+
+        <section id="updates" class="card">
+          <h2>11. Policy Updates</h2>
+          <p>
+            Bino may amend, revise, or update these Child Safety Standards at any time to reflect changes
+            in law, regulation, platform requirements, operational practices, or safety controls.
+          </p>
+          <p>
+            Any updates will be published on this page together with the revised effective date. Continued
+            use of the platform after an update may be subject to the updated standards, to the extent
+            permitted by applicable law.
+          </p>
+        </section>
+      </div>
     </div>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
       © 2026 Bino. All rights reserved.
     </div>
