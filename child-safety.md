@@ -100,7 +100,7 @@ Access to user-generated content and account-related information may be limited 
 - Enforcement of platform policies and user protections
 - Legal compliance, record preservation, and lawful reporting obligations
 
-For more information, please refer to BINO's [Privacy Policy](/privacy/) and related legal documents, where applicable.
+For more information, please refer to BINO's [Privacy Policy](https://legal-docs.binomedia.vn/privacy/) and related legal documents, where applicable.
 
 ## 10. Contact Information
 
