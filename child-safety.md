@@ -8,9 +8,9 @@ lang: en
 
 {% include nav.html %}
 
-**Effective Date:** April 18, 2026
-**Applies To:** All users, content, features, and interactions on BINO
-**Contact:** [contact@binomedia.vn](mailto:contact@binomedia.vn)
+- **Effective Date:** April 18, 2026
+- **Applies To:** All users, content, features, and interactions on BINO
+- **Contact:** [contact@binomedia.vn](mailto:contact@binomedia.vn)
 
 > BINO strictly prohibits any content, conduct, or interaction that exploits, sexualizes, abuses, harms, or endangers children. Confirmed or suspected violations may result in immediate removal, account suspension or termination, and referral to the appropriate authorities where required by law.
 
